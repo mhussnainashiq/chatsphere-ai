@@ -22,15 +22,7 @@ A polished full-stack AI chat application built with React, Vite, JavaScript, Fa
 **Backend:** Python, FastAPI, Pydantic, SQLAlchemy, SQLite, OpenAI SDK  
 **Testing:** pytest, FastAPI TestClient
 
-## Project structure
 
-```text
-chatsphere-ai/
-├── frontend/       # React/Vite application
-├── backend/        # FastAPI application and SQLite persistence
-├── .gitignore
-└── README.md
-```
 
 ## Requirements
 
@@ -59,22 +51,11 @@ Add your API key in `backend/.env`:
 ```env
 OPENAI_API_KEY=your_real_api_key_here
 OPENAI_MODEL=gpt-4o-mini
-DATABASE_URL=sqlite:///./chatsphere.db
-FRONTEND_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
+DATABASE_URL=sqlite:///./chatsphere.db=
 MAX_MESSAGE_LENGTH=12000
 ```
 
 Save the file, then start the API:
-
-```powershell
-uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
-```
-
-Open these URLs to verify the backend:
-
-- API root: http://127.0.0.1:8000/
-- Health check: http://127.0.0.1:8000/api/health
-- Interactive API docs: http://127.0.0.1:8000/docs
 
 The health response includes `ai_configured`. A value of `false` means the API key is missing; chat requests will return a clear configuration error.
 
@@ -88,10 +69,6 @@ Copy-Item .env.example .env
 npm install
 npm run dev
 ```
-
-Open http://127.0.0.1:5173.
-
-`frontend/.env` can set `VITE_API_BASE_URL=http://127.0.0.1:8000`. Restart Vite after changing environment variables.
 
 ## API endpoints
 
@@ -131,18 +108,6 @@ Tests cover the health response and conversation create/read/delete flow. Sendin
 - Configure CORS to trusted origins before deployment.
 - This is a portfolio starter, not a hardened multi-user production service. Before public deployment, add authentication, per-user data isolation, rate limiting, retention controls, and deployment secrets management.
 
-## Screenshots
-
-Add screenshots after running the app:
-
-```text
-docs/
-├── chatsphere-welcome.png
-├── chatsphere-conversation.png
-└── chatsphere-mobile.png
-```
-
-Then embed them here with Markdown image links, for example `![ChatSphere welcome screen](docs/chatsphere-welcome.png)`.
 
 ## Demo questions
 
